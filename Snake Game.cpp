@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include <conio.h>
+
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -62,13 +64,48 @@ void Draw()
 
 }
 
+
+// game controls
 void Input()
 {
+    // check if keyboard is being pressed:
+    if (kbhit())
+    {
+        switch (_getch())
+        {
+        case 'a':
+            dir = LEFT;
+            break;
+        case 'd':
+            dir = RIGHT;
+            break;
+        case 'w':
+            dir = UP;
+            break;
+        case 's':
+            dir = DOWN;
+            break;
+        case 'x':
+            gameOver = true;
+            break;
+
+        }
+    }
 
 }
 
+// implementing logic but currently stuck
 void Logic()
 {
+    switch (dir)
+    {
+        case LEFT;
+            x--
+                break;
+
+    default:
+        break;
+    }
 
 }
 
