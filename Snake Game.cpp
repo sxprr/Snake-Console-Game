@@ -40,6 +40,15 @@ void Draw()
             if (j == 0)
                 cout << "#";
 
+            if (i == y && j == x)
+                cout << "O";
+            else if (i == fruitY && j == fruitX)
+                cout << "f";
+            else
+                cout << " ";
+
+
+
                 cout << " ";
             if (j == width - 1)
                 cout << "#";
@@ -47,7 +56,7 @@ void Draw()
         cout << endl;
     }
 
-    for (int i = 0; i < width; i++)
+    for (int i = 0; i < width + 2; i++)
         cout << "#";
     cout << endl;
 
