@@ -4,7 +4,6 @@
 #include <iostream>
 using namespace std;
 bool gameOver;
-
 const int width = 20;
 const int height = 20;
 int x, y, fruitX, fruitY, score;
@@ -36,15 +35,16 @@ void Draw()
 
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; i++)
+        for (int j = 0; j < width; j++)
         {
             if (j == 0)
                 cout << "#";
-            else
+
                 cout << " ";
             if (j == width - 1)
                 cout << "#";
         }
+        cout << endl;
     }
 
     for (int i = 0; i < width; i++)
@@ -77,6 +77,7 @@ int main()
 
 
 }
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
