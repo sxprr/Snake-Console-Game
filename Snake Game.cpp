@@ -25,20 +25,6 @@ void Setup()
 
 }
 
-int main()
-{
-    Setup();
-    while (!gameOver)
-    {
-        Draw();
-        Input();
-        Logic();
-    }
-
-    return 0;
-
-
-}
 
 // Draw the map.
 void Draw()
@@ -77,6 +63,20 @@ void Logic()
 
 }
 
+int main()
+{
+    Setup();
+    while (!gameOver)
+    {
+        Draw();
+        Input();
+        Logic();
+    }
+
+    return 0;
+
+
+}
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
