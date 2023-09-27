@@ -57,11 +57,21 @@ void Draw()
                 cout << "f";
             else
             {
+                bool print = false;
+                // loop through every element of our tail
                 for (int k = 0; k < nTail; k++)
                 {
 
+                    // if our x and y coordinates match up....
+                    if (tailX[k] == j && tailY[k] == i)
+                    {
+                        //draw the tail from behind
+                        cout << "o";
+                        print = true;
+                    }
                 }
-                cout << " ";
+                    if(!print)
+                        cout << " ";
 
             }
 
@@ -93,7 +103,7 @@ void Input()
         switch (_getch())
         {
         case 'a':
-            dir = LEFT;
+            dir = LEFT; 
             break;
         case 'd':
             dir = RIGHT;
@@ -120,6 +130,8 @@ void Logic()
     int prevX = tailX[0];
     int prevY = tailY[0];
     int prevX2, prevY2;
+    tailX[0] = x;
+    tailY[0] = y;
 
     for (int i = 1; i < nTail; i++)
     {
