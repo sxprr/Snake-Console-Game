@@ -5,12 +5,16 @@
 #include <conio.h>
 
 using namespace std;
+
 bool gameOver;
+
 const int width = 20;
 const int height = 20;
+
 int x, y, fruitX, fruitY, score;
 int tailX[100], tailY[100];
 int nTail;
+
 enum eDirection {STOP = 0, LEFT, RIGHT, UP, DOWN};
 eDirection dir;
 
@@ -37,6 +41,7 @@ void Draw()
         cout << "#";
     cout << endl;
 
+    // drawing
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -44,12 +49,21 @@ void Draw()
             if (j == 0)
                 cout << "#";
 
+            // draw the player
             if (i == y && j == x)
                 cout << "O";
+            // draw the fruit
             else if (i == fruitY && j == fruitX)
                 cout << "f";
             else
+            {
+                for (int k = 0; k < nTail; k++)
+                {
+
+                }
                 cout << " ";
+
+            }
 
                 cout << " ";
             if (j == width - 1)
@@ -99,9 +113,25 @@ void Input()
 
 }
 
-// implementing logic but currently stuck
+// Game logic
 void Logic()
 {
+    // implementing the movement of the snake tail.
+    int prevX = tailX[0];
+    int prevY = tailY[0];
+    int prevX2, prevY2;
+
+    for (int i = 1; i < nTail; i++)
+    {
+        //remember the current position of our tail segments
+        prevX2 = tailX[i];
+        prevY2 = tailY[i];
+        tailX[i] = prevX;
+        tailY[i] = prevY;
+        prevX = prevX2;
+        prevY = prevY2;
+    }
+
     switch (dir)
     {
     case LEFT:
@@ -134,6 +164,7 @@ void Logic()
         score += 10;
         fruitX = rand() % width;
         fruitY = rand() % height;   
+        nTail++;
     }
 
 }
