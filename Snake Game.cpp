@@ -49,8 +49,6 @@ void Draw()
             else
                 cout << " ";
 
-
-
                 cout << " ";
             if (j == width - 1)
                 cout << "#";
@@ -61,15 +59,20 @@ void Draw()
     for (int i = 0; i < width + 2; i++)
         cout << "#";
     cout << endl;
+    cout << "Score: " << score << endl;
 
 }
 
 
-// game controls
+// game controls using wasd and arrow keys
 void Input()
 {
-    // check if keyboard is being pressed:
-    if (kbhit())
+
+
+
+    // check if wasd is being pressed:
+    // also check if arrow keys are being pressed:
+    if (_kbhit())
     {
         switch (_getch())
         {
@@ -99,12 +102,36 @@ void Logic()
 {
     switch (dir)
     {
-        case LEFT;
-            x--
-                break;
+    case LEFT:
+        x--;
+        break;
+
+    case RIGHT:
+        x++;
+        break;
+
+    case UP:
+        y--;
+        break;
+
+    case DOWN:
+        y++;
+        break;
+        
 
     default:
         break;
+    }
+    
+    // if we go out of bounds, the game will terminate
+    if (x > width || x < 0 || y > height || y < 0)
+        gameOver = true;
+    
+    if (x == fruitX && y == fruitY)
+    {
+        score += 10;
+        fruitX = rand() % width;
+        fruitY = rand() % height;   
     }
 
 }
